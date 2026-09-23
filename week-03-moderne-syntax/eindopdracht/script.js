@@ -17,11 +17,11 @@ button.addEventListener("click", () => {
      let department = document.querySelector("#department").value
      let naam = document.querySelector("#naam").value
 
-
-  
-    profiles_list.innerHTML +=   `<li> ${naam}  ${role}  ${department} </li>`
-  
-  
+if (role == "" || department == "" || naam == "") {
+    alert("geen informatie")
+  } else {
+   profiles_list.innerHTML +=   `<li> ${naam}  ${role}  ${department} </li>`
+  }
 })
 
 
