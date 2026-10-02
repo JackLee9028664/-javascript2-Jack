@@ -6,7 +6,6 @@ let amount = 0;
 button.textContent ="add"
 
 
-
 button.addEventListener("click", () =>{
     event.preventDefault();
    let input=  document.querySelector("#short_input").value;
