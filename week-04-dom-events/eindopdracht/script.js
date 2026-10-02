@@ -4,6 +4,8 @@ let amount = 0
 let aantal = "task"
 let counter = document.getElementById("counter")
 
+
+
 // taakToevoegen() — maak een <li> aan met een checkbox en verwijderknop
 button.addEventListener("click", () => {
      event.preventDefault();

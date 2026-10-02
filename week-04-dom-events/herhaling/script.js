@@ -20,6 +20,7 @@ button.addEventListener("click", () =>{
     console.log(verwijderButton);
         lijst.innerHTML += `${input} <input id="checkbox" class="" type="checkbox"></input>  `
 
+
 list.appendChild(lijst)
 lijst.appendChild(verwijderButton)
 
