@@ -16,7 +16,7 @@ button.addEventListener("click", () => {
     let verwijderButton = document.createElement("button")
     verwijderButton.textContent = "verwijder"
     console.log(verwijderButton);
-        list.innerHTML += `${input}  `
+        list.innerHTML += `${input}  <input type="checkbox" id="checkbox"> </input>`
   let checkbox = document.getElementById("checkbox")
 taskList.appendChild(list)
 list.appendChild(verwijderButton)
