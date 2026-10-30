@@ -22,7 +22,7 @@ taskList.appendChild(list)
 list.appendChild(verwijderButton)
 
 
-      amount++
+      amount++ 
       counter.textContent= `${amount } task`
      
 
