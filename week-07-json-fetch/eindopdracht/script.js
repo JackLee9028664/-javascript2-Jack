@@ -45,8 +45,7 @@ stad.addEventListener("click" , () => {
 // Maak een eventlistener voor de #filter-technologie button
 let technologie = document.querySelector("#filter-technologie")
 technologie.addEventListener("click" , () => {
-    showArticles(
-  allArticles.filter(artikel => artikel.category === "Technologie")
+    showArticles(allArticles.filter(artikel => artikel.category === "Technologie")
 );
 }) 
 // Filter allArticles op category 'Technologie' en roep showArticles() aan
