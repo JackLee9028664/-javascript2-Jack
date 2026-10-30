@@ -1,17 +1,20 @@
 let allArticles = [];
 
+
 const showArticles = (articles) => {
-  let html = articles.map(artikel => {
-   return ` <article>
+ let container = document.querySelector("#articles");
+
+  container.innerHTML = "";
+  for (let artikel of articles) {
+    container.innerHTML += `
+      <article>
         <h2>${artikel.title}</h2>
         <p>${artikel.category}</p>
         <p>${artikel.summary}</p>
-      </article>`
-  })
-  document.querySelector("#articles").innerHTML = html;
-  // Zet elk artikel om naar een <article> met map() en toon het in #articles
-  // Toon de title, category en summary van elk artikel
+      </article>`;
+  }
 };
+
 
 fetch('./news.json')
   .then(r => r.json())
