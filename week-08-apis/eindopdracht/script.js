@@ -1,21 +1,33 @@
 // API_KEY wordt geladen vanuit config.js (zie config.example.js voor instructies)
 
 const showWeather = (data) => {
-  // Zet de weerinformatie van data om naar HTML in #weather-info
-  // Toon: stadsnaam, weer-icon, temperatuur, gevoelstemperatuur, luchtvochtigheid en windsnelheid
-  // Rond de temperaturen af met Math.round()
-  // Gebruik console.log(data) om de structuur te bekijken
-  // De icon-URL is: `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+let weather_info = document.querySelector("#weather-info");
+console.log(data);
+weather_info.innerHTML = ` <h2>${data.name}</h2>
+<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">
+<p>Temperatuur: ${Math.round(data.main.temp)} °C</p> <p>Gevoelstemperatuur: ${Math.round(data.main.feels_like)} °C</p>
+<p>Luchtvochtigheid: ${data.main.humidity}%</p>
+<p>Windsnelheid: ${data.wind.speed} m/s</p> `;
 };
+
 
 const getWeather = (city) => {
-  // Doe een fetch naar de OpenWeather API met city en API_KEY
-  // De URL is: `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
-  // Gebruik console.log(data) om de structuur te bekijken
-  // Roep showWeather(data) aan met de response
+
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
+  .then(response => response.json())
+  .then(data => {
+   console.log(data);
+   showWeather(data);
+        });
+
 };
 
-// Voeg hier een submit event listener toe aan #search-form
-// Gebruik e.preventDefault() zodat de pagina niet herlaadt
-// Lees de waarde uit #city-input en roep getWeather(city) aan
-// Maak de input daarna leeg
+let search_form = document.querySelector("#search-form");
+let city_input = document.querySelector("#city-input");
+
+search_form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let city = city_input.value;
+    getWeather(city);
+    city_input.value = "";
+});
