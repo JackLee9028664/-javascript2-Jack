@@ -25,7 +25,8 @@ fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
   for (let pokemon of allPokemon) {
   pokemon_list.innerHTML += ` <article>
   <h2>${pokemon.name}</h2>
- <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="${pokemon.name}" width="100">
+ <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png"
+  alt="${pokemon.name}" width="100">
  </article>`;
 } }
        
